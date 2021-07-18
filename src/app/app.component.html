@@ -1,0 +1,39 @@
+<nb-layout>
+  <nb-layout-header fixed class="encabezado">
+    <a (click)="toggleSidebar()" href="#">
+      <nb-icon icon="menu" style="color: white"></nb-icon>
+    </a>
+
+    <a class="logo" [routerLink]="['/dashboard']" class="espacioDerecha">
+      <img
+        src="../../../assets/img/logoSEJELetras_Blanco.png"
+        alt=""
+        style="width: 120px"
+      />
+    </a>
+
+    <div
+      class="container d-flex flex-row-reverse"
+      style="margin-right: 20px; padding-right: 0px"
+    >
+      <nb-actions size="small">
+        <nb-action>
+          <nb-user
+            shape="rectangle"
+            name="Administrador"
+            title="Desarrollador"
+            style="cursor: pointer"
+          ></nb-user>
+        </nb-action>
+      </nb-actions>
+    </div>
+  </nb-layout-header>
+
+  <nb-sidebar>
+    <app-sidebar></app-sidebar>
+  </nb-sidebar>
+  <nb-layout-column class="espacioSuperiorContenido">
+    <router-outlet> </router-outlet>
+  </nb-layout-column>
+  <nb-layout-footer>Poder Judicial de Honduras</nb-layout-footer>
+</nb-layout>

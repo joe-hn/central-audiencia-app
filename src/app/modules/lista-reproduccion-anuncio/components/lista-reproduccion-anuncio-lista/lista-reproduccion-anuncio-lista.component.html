@@ -1,0 +1,42 @@
+<div class="form-inline">
+    <div class="row">
+      <div class="col">
+        <nb-form-field>
+          <nb-icon nbPrefix icon="search"></nb-icon>
+          <input
+            type="text"
+            nbInput
+            placeholder="Búsqueda"
+            fieldSize="small"
+            (keyup)="applyFilter($event)"
+          />
+        </nb-form-field>
+      </div>
+      <div class="col-md-auto"></div>
+    </div>
+  </div>
+  
+  <div class="form-inline">
+    <div class="row">
+      <table mat-table [dataSource]="this.dataSource" matSort class="table-hover">
+        <ng-container matColumnDef="titulo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Titulo</th>
+          <td mat-cell *matCellDef="let element">{{ element.titulo }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="duracion">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Duración (s)</th>
+          <td mat-cell *matCellDef="let element">{{ element.duracion }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="tipoVideo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo Archivo</th>
+          <td mat-cell *matCellDef="let element">{{ element.tipoVideo }}</td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </div>
+  

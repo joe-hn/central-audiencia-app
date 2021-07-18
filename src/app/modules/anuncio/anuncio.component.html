@@ -1,0 +1,22 @@
+<nb-layout>
+    <nb-layout-column>
+      <nb-card status="basic" class="fade-in-top-row2">
+        <nb-card-header>
+          <nb-icon icon="layout-outline"></nb-icon> Lista de Anuncios
+        </nb-card-header>
+        <nb-card-body>
+          <nb-tabset fullWidth>
+            <nb-tab tabTitle="Anuncios">
+              <!-- #region ANUNCIO -->
+              <app-aviso-lista></app-aviso-lista>
+              <!-- #endregion -->
+            </nb-tab>
+            <nb-tab tabTitle="Lista Reproducción">
+              <app-lista-reproduccion-anuncio-lista></app-lista-reproduccion-anuncio-lista>
+            </nb-tab>
+          </nb-tabset>
+        </nb-card-body>
+      </nb-card>
+    </nb-layout-column>
+  </nb-layout>
+  

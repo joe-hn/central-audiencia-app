@@ -1,0 +1,22 @@
+<mat-dialog-content>
+    <p>
+      Confirme si el anuncio:<strong>{{ data.nombre }}</strong
+      >, será retirado de la lista de reproducción actual.
+    </p>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions align="end">
+    <button nbButton hero status="success" [mat-dialog-close]="true" size="small">
+      Despublicar
+    </button>
+    <button
+      nbButton
+      hero
+      status="info"
+      [mat-dialog-close]="false"
+      cdkFocusInitial
+      size="small"
+    >
+      Cancelar
+    </button>
+  </mat-dialog-actions>

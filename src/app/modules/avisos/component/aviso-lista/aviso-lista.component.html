@@ -1,0 +1,111 @@
+<div class="form-inline">
+  <!-- #region CABECERA -->
+  <div class="row">
+    <div class="col">
+      <nb-form-field>
+        <nb-icon nbPrefix icon="search"></nb-icon>
+        <input
+          type="text"
+          nbInput
+          placeholder="Búsqueda"
+          fieldSize="small"
+          (keyup)="applyFilter($event)"
+        />
+      </nb-form-field>
+    </div>
+    <div class="col-md-auto"></div>
+    <div class="col col-lg-4">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button
+          nbButton
+          status="success"
+          size="small"
+          [routerLink]="['/aviso/nuevo']"
+        >
+          <nb-icon icon="plus-circle"></nb-icon>Agregar Nuevo Anuncio
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- #endregion -->
+</div>
+
+<div class="form-inline">
+  <div class="row">
+    <!-- #region GRID -->
+    <table mat-table [dataSource]="this.dataSource" matSort class="table-hover">
+      <ng-container matColumnDef="titulo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Titulo</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.titulo }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fechaInicio">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Inicio</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.fechaInicioDescripcion }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fechaFinalizacion">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Fecha Finalización
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.fechaFinalizacionDescripcion }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center">
+          Acciones
+        </th>
+        <td mat-cell *matCellDef="let element" style="width: 50px">
+          <nb-button-group shape="rectangle" size="tiny">
+            <button nbButton [routerLink]="['/aviso/editar', element.id]">
+              <nb-icon icon="edit" status="success"></nb-icon>Editar
+            </button>
+            <button nbButton [routerLink]="['/aviso/detalle', element.id]">
+              <nb-icon icon="arrow-forward" status="primary"></nb-icon>detalle
+            </button>
+            <ng-container *ngIf="element.publicado; else publicar">
+              <button nbButton (click)="onDespublicar(element)" size="tiny">
+                <nb-icon icon="video-off" status="danger"></nb-icon>Despublicar
+              </button>
+            </ng-container>
+
+            <ng-template #publicar>
+              <button nbButton (click)="onPublicar(element)" size="tiny">
+                <nb-icon icon="video" status="primary"></nb-icon>Publicar
+              </button>
+            </ng-template>
+
+            <button nbButton (click)="onEliminar(element)">
+              <nb-icon icon="trash-2" status="danger"></nb-icon>eliminar
+            </button>
+          </nb-button-group>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <!-- #endregion -->
+
+    <!-- #region PAGINACION -->
+    <div style="padding-top: 10px">
+      <ngb-pagination
+        (pageChange)="onPageChange($event)"
+        [collectionSize]="page.totalPages"
+        [pageSize]="page.pageSize"
+        [page]="page.currentPage"
+        size="sm"
+        class="d-flex justify-content-end"
+        aria-label="Default pagination"
+      >
+      </ngb-pagination>
+    </div>
+    <!-- #endregion -->
+  </div>
+</div>

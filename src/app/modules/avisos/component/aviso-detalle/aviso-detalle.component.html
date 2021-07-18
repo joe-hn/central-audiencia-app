@@ -1,0 +1,128 @@
+<nb-layout>
+  <nb-layout-column class="col-md-7" style="margin: 0px auto 0px auto">
+    <nb-card status="primary">
+      <nb-card-header>
+        <nb-icon icon="layout-outline"></nb-icon>
+        Edición del Anuncio
+      </nb-card-header>
+      <nb-card-body>
+        <!-- #region FORMULARIO -->
+        <form class="example-form">
+          <nb-form-field>
+            <label class="label">Titulo del Anuncio</label>
+            <input
+              type="text"
+              nbInput
+              name="titulo"
+              #titulo="ngModel"
+              [(ngModel)]="modelo.titulo"
+              readonly
+            />
+          </nb-form-field>
+
+          <nb-form-field>
+            <label class="label">Tipo de Anuncio</label>
+            <input
+              type="text"
+              nbInput
+              name="tipoAviso"
+              #tipoAviso="ngModel"
+              [(ngModel)]="modelo.tipoAviso"
+              readonly
+            />
+          </nb-form-field>
+
+          <nb-form-field>
+            <label class="label">Tipo de Archivo</label>
+            <input
+              type="text"
+              nbInput
+              name="tipoArchivo"
+              #tipoArchivo="ngModel"
+              [(ngModel)]="modelo.tipoArchivo"
+              readonly
+            />
+          </nb-form-field>
+
+          <nb-form-field>
+            <label class="label">Fecha Desde</label>
+            <input
+              type="text"
+              nbInput
+              name="fechaInicioDescripcion"
+              #fechaInicioDescripcion="ngModel"
+              [(ngModel)]="modelo.fechaInicioDescripcion"
+              readonly
+            />
+          </nb-form-field>
+
+          <nb-form-field>
+            <label class="label">Fecha Hasta</label>
+            <input
+              type="text"
+              nbInput
+              name="fechaFinalizacionDescripcion"
+              #fechaFinalizacionDescripcion="ngModel"
+              [(ngModel)]="modelo.fechaFinalizacionDescripcion"
+              readonly
+            />
+          </nb-form-field>
+
+          <nb-form-field>
+            <label class="label">Dirección del Video</label>
+            <input
+              type="text"
+              nbInput
+              name="url"
+              #url="ngModel"
+              [(ngModel)]="modelo.url"
+              readonly
+            />
+          </nb-form-field>
+
+          <nb-form-field>
+            <label class="label">Nombre del Video</label>
+            <input
+              type="text"
+              nbInput
+              name="nombreArchivo"
+              #nombreArchivo="ngModel"
+              [(ngModel)]="modelo.nombreArchivo"
+              readonly
+            />
+          </nb-form-field>
+
+          <nb-form-field>
+            <label class="label">Nombre del Video</label>
+            <input
+              type="text"
+              nbInput
+              name="nombreArchivo"
+              #nombreArchivo="ngModel"
+              [(ngModel)]="modelo.duracion"
+              readonly
+            />
+          </nb-form-field>
+
+          <hr class="mb-4" />
+
+          <!-- #region BOTONERA -->
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mr-2 btn-group-sm">
+              <button
+                nbButton
+                status="info"
+                size="small"
+                (click)="onCancelar()"
+              >
+                Regresar
+              </button>
+            </div>
+          </div>
+          <!-- #endregion -->
+        </form>
+        <!-- #endregion -->
+      </nb-card-body>
+    </nb-card>
+  </nb-layout-column>
+</nb-layout>

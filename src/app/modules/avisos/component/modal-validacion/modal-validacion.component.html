@@ -1,0 +1,26 @@
+<mat-dialog-content>
+  <p>
+    El anuncio:<strong> {{ data.nombre }}</strong
+    >, no puede ser publicado por los siguientes motivos:
+  </p>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">La fecha de Inicio es menor o mayor a la fecha del día de hoy.</li>    
+    <li class="list-group-item">La fecha de finalización es menor o mayor a la fecha del día de hoy.</li>    
+  </ul>
+  <p>
+      Puede editar las fechas del anuncio para corregir el problema. 
+  </p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button
+    nbButton
+    hero
+    status="info"
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+    size="small"
+  >
+    Cancelar
+  </button>
+</mat-dialog-actions>

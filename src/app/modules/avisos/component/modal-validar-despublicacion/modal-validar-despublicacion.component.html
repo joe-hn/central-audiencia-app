@@ -1,0 +1,20 @@
+<mat-dialog-content>
+    <p>
+      El anuncio:<strong> {{ data.nombre }}</strong
+      >, no puede ser elimnado porque esta publicado, debe de despublicarlo para poder eliminarlo
+    </p>    
+  </mat-dialog-content>
+  
+  <mat-dialog-actions align="end">
+    <button
+      nbButton
+      hero
+      status="info"
+      [mat-dialog-close]="true"
+      cdkFocusInitial
+      size="small"
+    >
+      Cancelar
+    </button>
+  </mat-dialog-actions>
+  

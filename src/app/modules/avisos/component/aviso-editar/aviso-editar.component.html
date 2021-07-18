@@ -1,0 +1,145 @@
+<nb-layout>
+  <nb-layout-column class="col-md-7" style="margin: 0px auto 0px auto">
+    <nb-card status="primary">
+      <nb-card-header>
+        <nb-icon icon="layout-outline"></nb-icon>
+        Edición del Anuncio
+      </nb-card-header>
+      <nb-card-body>
+        <!-- #region FORMULARIO -->
+        <form class="example-form">
+          <nb-form-field>
+            <label class="label">Titulo del Anuncio</label>
+            <input
+              type="text"
+              nbInput
+              name="titulo"
+              #titulo="ngModel"
+              [(ngModel)]="modelo.titulo"
+              required
+              maxlength="40"
+            />
+            <mat-error *ngIf="titulo.touched && titulo.invalid">
+              <span style="padding: 6px"
+                ><small>Ingrese el valor del mensaje</small>
+              </span>
+            </mat-error>
+          </nb-form-field>
+
+          <nb-form-field>
+            <label class="label">Tipo Anuncio</label>
+            <nb-select
+              name="tipoAviso"
+              #tipoAviso="ngModel"
+              [(ngModel)]="modelo.tipoAviso"
+            >
+              <nb-option *ngFor="let a of tipoaviso" [value]="a.nombre">
+                {{ a.nombre }}
+              </nb-option>
+            </nb-select>
+          </nb-form-field>
+
+          <nb-form-field>
+            <label class="label">Tipo Archivo</label>
+            <nb-select
+              name="tipoArchivo"
+              #tipoArchivo="ngModel"
+              [(ngModel)]="modelo.tipoArchivo"
+            >
+              <nb-option *ngFor="let a of tipoarchivo" [value]="a.nombre">
+                {{ a.nombre }}
+              </nb-option>
+            </nb-select>
+          </nb-form-field>
+
+          <nb-form-field>
+            <label class="label">Fecha Desde</label>
+            <input
+              nbInput
+              [nbDatepicker]="dateFI"
+              name="FI"
+              #FI="ngModel"
+              [(ngModel)]="dateInicio"
+              required
+              readonly
+            />
+            <nb-datepicker
+              #dateFI
+              [min]="dateMin"
+              [max]="dateMax"
+            ></nb-datepicker>
+          </nb-form-field>
+
+          <nb-form-field>
+            <label class="label">Fecha Hasta</label>
+            <input
+              nbInput
+              [nbDatepicker]="dateFF"
+              name="FF"
+              #FF="ngModel"
+              [(ngModel)]="dateFinal"
+              required
+              readonly
+            />
+            <nb-datepicker
+              #dateFF
+              [min]="dateMin"
+              [max]="dateMax"
+            ></nb-datepicker>
+          </nb-form-field>
+
+          <nb-form-field>
+            <label class="label">Dirección del Video</label>
+            <input
+              type="text"
+              nbInput
+              name="url"
+              #url="ngModel"
+              [(ngModel)]="modelo.url"
+              required
+              maxlength="280"
+            />
+            <mat-error *ngIf="url.touched && url.invalid">
+              <span style="padding: 6px"
+                ><small>Ingrese la dirección del video</small>
+              </span>
+            </mat-error>
+          </nb-form-field>
+
+          <hr class="mb-4" />
+
+          <!-- #region BOTONERA -->
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mr-2 btn-group-sm">
+              <button
+                nbButton
+                status="primary"
+                size="small"
+                (click)="onGuardar()"
+              >
+                Actualizar
+              </button>
+              &nbsp;&nbsp;
+              <button
+                nbButton
+                status="info"
+                size="small"
+                (click)="onCancelar()"
+              >
+                Regresar
+              </button>
+            </div>
+          </div>
+          <!-- #endregion -->
+
+          <!-- #region MENSAJES DE VALIDACIONES -->
+          <nb-alert status="danger" *ngIf="vdatemayor"
+            >! La fecha desde debe ser menor a la fecha hasta ¡</nb-alert
+          >
+          <!-- #endregion -->
+        </form>
+        <!-- #endregion -->
+      </nb-card-body>
+    </nb-card>
+  </nb-layout-column>
+</nb-layout>
