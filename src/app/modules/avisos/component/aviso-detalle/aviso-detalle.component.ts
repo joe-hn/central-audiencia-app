@@ -24,6 +24,6 @@ export class AvisoDetalleComponent implements OnInit {
   }
 
   onCancelar() {
-    this.router.navigate(['aviso/lista']);
+    this.router.navigate(['anuncio']);
   }
 }

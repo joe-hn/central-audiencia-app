@@ -8,12 +8,17 @@ const routes: Routes = [
       import('./modules/anuncio/anuncio.module').then((m) => m.AnuncioModule),
   },
   {
+    path: 'aviso',
+    loadChildren: () =>
+      import('./modules/avisos/avisos.module').then((m) => m.AvisosModule),
+  },
+  {
     path: 'lista-reproduccion-anuncio',
     loadChildren: () =>
       import(
         './modules/lista-reproduccion-anuncio/lista-reproduccion-anuncio.module'
       ).then((m) => m.ListaReproduccionAnuncioModule),
-  },  
+  },
   {
     path: '',
     redirectTo: 'anuncio',

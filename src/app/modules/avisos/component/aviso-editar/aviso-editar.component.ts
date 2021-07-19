@@ -78,6 +78,6 @@ export class AvisoEditarComponent implements OnInit {
   }
 
   onCancelar() {
-    this.router.navigate(['aviso/lista']);
+    this.router.navigate(['anuncio']);
   }
 }
